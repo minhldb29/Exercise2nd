@@ -31,9 +31,24 @@ public class BaseTest {
 
         if (browser.contains("firefox")) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
             desiredCapabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
             driver = new FirefoxDriver(firefoxOptions);
         }
+    }
+
+    public static void testEnv (String[] args){
+        String environment = "prod";
+        ConfigRead configRead = new ConfigRead(environment);
+        String url = configRead.getUrl(environment);
+        String email = configRead.getEmail(environment);
+        String password = configRead.getPassword(environment);
+
+        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        driver.get(url);
+        System.out.println("Test on: " +url);
+        System.out.println("Using email: " +email);
     }
 
     @AfterTest
