@@ -31,7 +31,6 @@ public class BaseTest {
 
         if (browser.contains("firefox")) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
             desiredCapabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
             driver = new FirefoxDriver(firefoxOptions);
         }
