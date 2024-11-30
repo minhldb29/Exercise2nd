@@ -62,9 +62,9 @@ public class LoginPage extends BasePage {
         boolean loginBtnDisplayed = loginBtn.isDisplayed();
 
         if (loginBtnDisplayed) {
-            System.out.println("Password is displayed!");
+            System.out.println("Login button is displayed!");
         } else {
-            System.out.println("Password is not displayed!");
+            System.out.println("Login button is not displayed!");
         }
     }
 
