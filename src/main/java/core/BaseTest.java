@@ -1,5 +1,6 @@
 package core;
 
+import config.ConfigRead;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,8 +13,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import java.io.IOException;
+
 public class BaseTest {
     protected WebDriver driver;
+    private ConfigRead configRead;
 
     @BeforeTest
     @Parameters({"browser"})
@@ -31,21 +35,17 @@ public class BaseTest {
 
         if (browser.contains("firefox")) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
             desiredCapabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
             driver = new FirefoxDriver(firefoxOptions);
         }
     }
-
-    public static void testEnv (String[] args){
-        String environment = "prod";
-        ConfigRead configRead = new ConfigRead(environment);
+        public void setUp() throws IOException {
+        String environment = System.getProperty("prod", "stage");
+        configRead = new ConfigRead(environment);
         String url = configRead.getUrl(environment);
         String email = configRead.getEmail(environment);
         String password = configRead.getPassword(environment);
 
-        WebDriver driver = new ChromeDriver();
-        ChromeOptions chromeOptions = new ChromeOptions();
         driver.get(url);
         System.out.println("Test on: " +url);
         System.out.println("Using email: " +email);
@@ -57,7 +57,6 @@ public class BaseTest {
             driver.quit();
         }
     }
-
     public WebDriver getDriver() {
         return driver;
     }
