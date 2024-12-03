@@ -1,12 +1,9 @@
 package test;
 
-import config.ConfigRead;
 import core.BaseTest;
 import org.testng.annotations.Test;
 import pages.InitPage;
 import pages.LoginPage;
-
-import java.io.IOException;
 
 public class verifyLoginSuccess extends BaseTest {
     @Test

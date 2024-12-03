@@ -1,6 +1,5 @@
 package core;
 
-import config.ConfigRead;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
