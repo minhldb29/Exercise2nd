@@ -11,6 +11,9 @@ public class DashboardPage extends BasePage {
     @FindBy(id = "doc-search-input")
     private WebElement searchTxb;
 
+    @FindBy(xpath = "//span[contains(text(),'Account')]")
+    private WebElement account;
+
     public DashboardPage(WebDriver d){
         super(d);
     }
@@ -24,5 +27,10 @@ public class DashboardPage extends BasePage {
         } else {
             System.out.println("Search textbox is not displayed!");
         }
+    }
+
+    public void clickToAccountScreen(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(account));
+        account.click();
     }
 }
