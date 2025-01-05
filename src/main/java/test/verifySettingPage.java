@@ -2,25 +2,28 @@ package test;
 
 import core.BaseTest;
 import io.qameta.allure.Epic;
-import io.qameta.allure.Step;
+import net.bytebuddy.build.CachedReturnPlugin;
 import org.testng.annotations.Test;
-import pages.DashboardPage;
-import pages.InitPage;
-import pages.LoginPage;
+import pages.*;
 
-public class verifySearchTextbox extends BaseTest {
+public class verifySettingPage extends BaseTest {
     @Test
-    @Epic("Verify Search Textbox is Displayed on Dashboard")
-    public void verifySearchTextboxDisplayed() {
+    @Epic("Verify Elements on Setting Page")
+    public void verifySettingPage(){
         InitPage initPage = new InitPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
         DashboardPage dashboardPage = new DashboardPage(getDriver());
+        ProfilePage profilePage = new ProfilePage(getDriver());
+        SettingPage settingPage = new SettingPage(getDriver());
         initPage.navigateToInitPage("https://www.grammarly.com/");
         initPage.clickToLogin();
         loginPage.inputEmail();
         loginPage.clickConinueButton();
         loginPage.inputPassword();
         loginPage.clickToLogin();
-        dashboardPage.verifySearchTextboxDisplayed();
+        dashboardPage.clickToAccountScreen();
+        profilePage.navigateToSettingScreen();
+        settingPage.navigateToFeatureCustomScreen();
+        settingPage.verifyFeatureCustomTitleDisplayed();
     }
 }

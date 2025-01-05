@@ -1,6 +1,7 @@
 package pages;
 
 import core.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,7 @@ public class LoginPage extends BasePage {
         super(d);
     }
 
+    @Step("Verify Email Displayed")
     public void verifyEmailDisplayed(){
         boolean emailDisplayed = email.isDisplayed();
 
@@ -33,6 +35,7 @@ public class LoginPage extends BasePage {
         }
     }
 
+    @Step("Verify Continue Button Displayed")
     public void verifyContinueButtonDisplayed(){
         boolean submitBtnDisplayed = continueBtn.isDisplayed();
 
@@ -43,10 +46,12 @@ public class LoginPage extends BasePage {
         }
     }
 
+    @Step("Click Coninue Button")
     public void clickConinueButton(){
         continueBtn.click();
     }
 
+    @Step("Verify Password Displayed")
     public void verifyPasswordDisplayed(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(password));
         boolean passwordDisplayed = password.isDisplayed();
@@ -58,26 +63,30 @@ public class LoginPage extends BasePage {
         }
     }
 
+    @Step("Verify Login Displayed")
     public void verifyLoginDisplayed(){
         boolean loginBtnDisplayed = loginBtn.isDisplayed();
 
         if (loginBtnDisplayed) {
-            System.out.println("Password is displayed!");
+            System.out.println("Login button is displayed!");
         } else {
-            System.out.println("Password is not displayed!");
+            System.out.println("Login button is not displayed!");
         }
     }
 
+    @Step("Input Email")
     public void inputEmail(){
         email.clear();
         email.sendKeys("binhminh9631@gmail.com");
     }
 
+    @Step("Input Password")
     public void inputPassword(){
         password.clear();
         password.sendKeys("Binhminh294.");
     }
 
+    @Step("Click To Login")
     public void clickToLogin(){
         loginBtn.click();
     }
