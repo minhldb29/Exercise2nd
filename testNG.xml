@@ -4,6 +4,8 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="test.verifyLoginSuccess"/>
+            <class name="test.verifyProfileScreen"></class>
         </classes>
+
     </test>
 </suite>

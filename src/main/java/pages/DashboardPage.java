@@ -1,6 +1,7 @@
 package pages;
 
 import core.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,7 @@ public class DashboardPage extends BasePage {
         super(d);
     }
 
+    @Step("Verify Search Textbox Displayed")
     public void verifySearchTextboxDisplayed(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(searchTxb));
         boolean searchTxbDisplayed = searchTxb.isDisplayed();
@@ -29,6 +31,7 @@ public class DashboardPage extends BasePage {
         }
     }
 
+    @Step("Click To Account Screen")
     public void clickToAccountScreen(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(account));
         account.click();

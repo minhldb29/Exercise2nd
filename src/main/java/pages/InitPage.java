@@ -1,6 +1,7 @@
 package pages;
 
 import core.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,11 +13,13 @@ public class InitPage extends BasePage {
 
     public InitPage(WebDriver d){super(d);}
 
+    @Step("Click To Login")
     public void clickToLogin(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(loginBtn1));
         loginBtn1.click();
     }
 
+    @Step("Navigate To Init Page")
     public void navigateToInitPage(String url) {
         getDriver().get(url);
         getDriver().manage().window().maximize();

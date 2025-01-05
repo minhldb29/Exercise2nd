@@ -1,11 +1,13 @@
 package test;
 
 import core.BaseTest;
+import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.*;
 
 public class verifySubcriptionPage extends BaseTest {
     @Test
+    @Epic("Verify Elements on Subcription Page")
     public void verifySubcriptionPage(){
         InitPage initPage = new InitPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());

@@ -1,11 +1,14 @@
 package test;
 
 import core.BaseTest;
+import io.qameta.allure.Epic;
+import net.bytebuddy.build.CachedReturnPlugin;
 import org.testng.annotations.Test;
 import pages.*;
 
 public class verifySettingPage extends BaseTest {
     @Test
+    @Epic("Verify Elements on Setting Page")
     public void verifySettingPage(){
         InitPage initPage = new InitPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());

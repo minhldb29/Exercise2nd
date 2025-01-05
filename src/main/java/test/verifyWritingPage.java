@@ -1,11 +1,13 @@
 package test;
 
 import core.BaseTest;
+import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.*;
 
 public class verifyWritingPage extends BaseTest {
     @Test
+    @Epic("Verify Elements on Writing Page")
     public void verifyWritingPage(){
         InitPage initPage = new InitPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());

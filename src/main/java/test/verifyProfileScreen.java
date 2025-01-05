@@ -1,6 +1,7 @@
 package test;
 
 import core.BaseTest;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.InitPage;
@@ -9,7 +10,8 @@ import pages.ProfilePage;
 
 public class verifyProfileScreen extends BaseTest {
     @Test
-    public void verifyProfileScreen(){
+    @Description("Verify Elements on Profile Screen")
+    public void verifyProfileScreen() {
         InitPage initPage = new InitPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
         DashboardPage dashboardPage = new DashboardPage(getDriver());
